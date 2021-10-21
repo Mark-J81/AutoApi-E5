@@ -1,6 +1,4 @@
 # -*- coding: UTF-8 -*-
-import os
-import sys
 import requests as req
 import json,sys,time
 #先注册azure应用,确保应用有以下权限:
@@ -79,21 +77,4 @@ def main():
         pass
 for _ in range(3):
     main()
-
-
-def push_msg(log):
-    msg = ""
-    DINGTALK_WEBHOOK = os.getenv("DINGTALK_WEBHOOK").strip() if os.getenv("DINGTALK_WEBHOOK") is not None else ""
-    DINGTALK_SECRET = os.getenv("DINGTALK_SECRET").strip() if os.getenv("DINGTALK_SECRET") is not None else ""
-    PUSHPLUS_TOKEN = os.getenv("PUSHPLUS_TOKEN").strip() if os.getenv("PUSHPLUS_TOKEN") is not None else ""
-
-    if len(DINGTALK_WEBHOOK) > 0 and len(DINGTALK_SECRET) > 0:
-        r = dingTalkPush.push_text(log, DINGTALK_WEBHOOK, DINGTALK_SECRET)
-        msg += "\n钉钉推送: " + r
-    if len(PUSHPLUS_TOKEN) > 0:
-        r = pushPlusPush.push_text(log, PUSHPLUS_TOKEN)
-        msg += "\nPushPlus推送: " + r
-
-    return msg
-
 
