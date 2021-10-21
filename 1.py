@@ -1,4 +1,6 @@
 # -*- coding: UTF-8 -*-
+import os
+import sys
 import requests as req
 import json,sys,time
 #先注册azure应用,确保应用有以下权限:
@@ -8,7 +10,20 @@ import json,sys,time
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
 
 
+def push_msg(log):
+    msg = ""
+    DINGTALK_WEBHOOK = os.getenv("DINGTALK_WEBHOOK").strip() if os.getenv("DINGTALK_WEBHOOK") is not None else ""
+    DINGTALK_SECRET = os.getenv("DINGTALK_SECRET").strip() if os.getenv("DINGTALK_SECRET") is not None else ""
+    PUSHPLUS_TOKEN = os.getenv("PUSHPLUS_TOKEN").strip() if os.getenv("PUSHPLUS_TOKEN") is not None else ""
 
+    if len(DINGTALK_WEBHOOK) > 0 and len(DINGTALK_SECRET) > 0:
+        r = dingTalkPush.push_text(log, DINGTALK_WEBHOOK, DINGTALK_SECRET)
+        msg += "\n钉钉推送: " + r
+    if len(PUSHPLUS_TOKEN) > 0:
+        r = pushPlusPush.push_text(log, PUSHPLUS_TOKEN)
+        msg += "\nPushPlus推送: " + r
+
+    return msg
 
 
 
