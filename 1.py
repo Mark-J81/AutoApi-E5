@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 import requests as req
-import json,sys,time
+import json,sys,time,os,random,linecache,socket,requests
 #先注册azure应用,确保应用有以下权限:
 #files:	Files.Read.All、Files.ReadWrite.All、Sites.Read.All、Sites.ReadWrite.All
 #user:	User.Read.All、User.ReadWrite.All、Directory.Read.All、Directory.ReadWrite.All
@@ -78,3 +78,4 @@ def main():
 for _ in range(3):
     main()
 
+requests.get('https://sc.ftqq.com/SCT65547TPBQlXuJoG2Mk7AZ0Y1eKmWl3.send?text=365E5调用10次完毕')
