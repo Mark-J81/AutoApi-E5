@@ -78,5 +78,5 @@ def main():
 for _ in range(3):
     main()
 
-requests.get('https://sc.ftqq.com/SCT65547TPBQlXuJoG2Mk7AZ0Y1eKmWl3.send?text=E5续期调用API权限10次运行完毕（163）')
-requests.get('http://www.pushplus.plus/send?token=0dacd84ff358406fa3b69f8fab31776f&title=163&content=E5续期调用API权限10次运行完毕')
+requests.get('https://sc.ftqq.com/SCT89749TUALbuyC7wr58Oh3Y6dLOeLjF.send?text=E5续期调用API权限10次运行完毕（163）')
+requests.get('http://www.pushplus.plus/send?token=d0a4e6c474344cff9e9fd9ff5449b1a4&title=163&content=E5续期调用API权限10次运行完毕')
